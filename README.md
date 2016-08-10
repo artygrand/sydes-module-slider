@@ -20,4 +20,5 @@ Unlimited sliders for every page!
 You can add more js slider scripts in "Template" section.
 Just select on "Iblock templates" panel slider and write name of js script.
 Then replace code of owl carousel to your html.
-After that you can use new argument `{iblock:slider?show=1*&template=your-script*)`
+
+After that you can use new argument `{iblock:slider?show=1&template=your-script)`

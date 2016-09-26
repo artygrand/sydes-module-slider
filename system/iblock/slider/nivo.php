@@ -4,14 +4,14 @@ $this->response->style[] = '//cdnjs.cloudflare.com/ajax/libs/jquery-nivoslider/3
 ?>
 
 <div id="slider<?=$args['show'];?>" class="nivoSlider">
-	<?php foreach ($result['items'] as $i => $item) { ?>
-	<a href="<?=$item['link'];?>">
-		<img src="/cache/img/<?=$result['settings']['width'];?>_<?=$result['settings']['height'];?>_c<?=$item['image'];?>" alt="" title="#caption<?=$args['show'];?>-<?=$i;?>">
-	</a>
-	<?php } ?>
+<?php foreach ($result['items'] as $i => $item) { ?>
+<?php if ($item['link']) { ?><a href="<?=$item['link'];?>"><?php } ?>
+	<img src="/cache/img/<?=$result['settings']['width'];?>_<?=$result['settings']['height'];?>_c<?=$item['image'];?>" alt="" <?php if ($item['text']) { ?>title="#caption<?=$args['show'];?>-<?=$i;?>"<?php } ?>>
+<?php if ($item['link']) { ?></a><?php } ?>
+<?php } ?>
 </div>
 <?php foreach ($result['items'] as $i => $item) { ?>
-<div id="caption<?=$args['show'];?>-<?=$i;?>" class="nivo-html-caption"><?=htmlspecialchars_decode($item['text']);?></div>
+<?php if ($item['text']) { ?><div id="caption<?=$args['show'];?>-<?=$i;?>" class="nivo-html-caption"><?=htmlspecialchars_decode($item['text']);?></div><?php } ?>
 <?php } ?>
 
 <script type="text/javascript">
@@ -23,3 +23,4 @@ $(window).load(function() {
 	});
 });
 </script>
+

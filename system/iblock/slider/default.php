@@ -5,10 +5,10 @@ $this->response->style[] = '//cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.0.0-
 ?>
 <div id="slider<?=$args['show'];?>" class="owl-carousel owl-theme">
 	<?php foreach ($result['items'] as $item) { ?>
-	<a href="<?=$item['link'];?>">
+	<?php if ($item['link']) { ?><a href="<?=$item['link'];?>"><?php } else { ?><div><?php } ?>
 		<img src="/cache/img/<?=$result['settings']['width'];?>_<?=$result['settings']['height'];?>_c<?=$item['image'];?>" alt="">
 		<span><?=htmlspecialchars_decode($item['text']);?></span>
-	</a>
+	<?php if ($item['link']) { ?></a><?php } else { ?></div><?php } ?>
 	<?php } ?>
 </div>
 

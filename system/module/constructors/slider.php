@@ -107,7 +107,7 @@ class SliderController extends Controller{
 
 		if ($items['new_key']['image'][0] != ''){
 			foreach ($items['new_key']['image'] as $i => $image){
-				if ($image == '' || $items['new_key']['link'][$i] == '') continue;
+				if ($image == '') continue;
 				$items[] = array(
 					'image' => $image,
 					'link' => $items['new_key']['link'][$i],
